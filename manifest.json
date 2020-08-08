@@ -7,10 +7,20 @@
   "permissions": [
     "<all_urls>",
     "webRequest",
-    "notifications"
+    "notifications",
+    "storage"
   ],
+  "icons": {
+    "64": "icon_enabled64.png"
+  },
   "background": {
-    "scripts": ["tmi.min.js","apiKey.js","background.js"],
+    "scripts": ["tmi.min.js","background.js"],
     "persistent": true
+  },
+  "browser_action": {
+    "default_icon": {
+        "64": "icon_enabled64.png"
+      },
+      "default_popup": "popup.html"
   }
 }
