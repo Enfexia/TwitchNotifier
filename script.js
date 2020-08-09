@@ -174,7 +174,7 @@ function setViewPort(state) {
 }
 
 function authTwitch() {
-    window.location.replace("https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=3b7spcxyyjayb9i9ul26du4rwtsquj&redirect_uri=https://enfexia.github.io/TwitchNotifier/&scope=user_read+chat:read")
+    window.location.replace("https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=3b7spcxyyjayb9i9ul26du4rwtsquj&redirect_uri=https://enfexia.github.io/TwitchNotifier&scope=user_read+chat:read")
 }
 
 
