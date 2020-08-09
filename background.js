@@ -1,5 +1,4 @@
-const client = new tmi.Client(api_client);
-client.connect().catch(console.error);
+var client;
 
 function getUser(username){
   return fetch('https://api.twitch.tv/kraken/users/' + username, {
@@ -14,11 +13,6 @@ function getUser(username){
     .then(data => { return data.logo});
 }
 
-client.on('message', async (channel, tags, message, self) => {
-  if (self) return;
-  getUser(tags["user-id"]).then(image => createNotification(image, tags.username, message) )
-});
-
 function createNotification(image,username, message) {
   chrome.notifications.create(new Date().getMilliseconds().toString(), {
     type: "basic",
@@ -27,3 +21,64 @@ function createNotification(image,username, message) {
     iconUrl: image
   }, function () { });
 }
+
+function initClient(api_client) {
+  client = new tmi.Client(api_client);
+  client.connect().catch(console.error);
+
+  client.on('message', async (channel, tags, message, self) => {
+    if (self) return;
+    getUser(tags["user-id"]).then(image => createNotification(image, tags.username, message));
+  });
+}
+
+function setupClient(username, token, enabled) {
+  if (enabled) {
+    let api_client = {
+      options: {
+          debug: true,
+      },
+      connection: {
+          cluster: 'aws',
+          reconnect: true
+      },
+      identity: {
+          username: username,
+          password: token,
+      },
+      channels: [
+          username
+      ]
+    };
+
+    initClient(api_client);
+  } else {
+    console.log("Ignoring. disabled");
+    client = {};
+  }
+  updateIcon(enabled);
+}
+
+function updateIcon(enabled) {
+  if (enabled) {
+    chrome.browserAction.setIcon({path: "icon_enabled64.png"});
+  } else {
+    chrome.browserAction.setIcon({path: "icon_disabled64.png"});
+  }
+}
+
+chrome.storage.sync.get('twitch_notification_settings', function(data) {
+  if (typeof data.twitch_notification_settings !== 'undefined') {
+    var username = data.twitch_notification_settings.username;
+    var token = data.twitch_notification_settings.token;
+    var enabled = data.twitch_notification_settings.enabled;
+    setupClient(username, token, enabled);
+  }
+});
+
+chrome.runtime.onMessage.addListener(function(msg) {
+  if ((msg.action === 'reload') && msg.settings) {
+    setupClient(msg.settings.username, msg.settings.token, msg.settings.enabled);
+  }
+  return true;
+});
