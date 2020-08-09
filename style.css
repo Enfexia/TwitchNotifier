@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+:root {
+    --main-border-radius: 15px;
+}
+
+body,html{
+    background-color:black;
+    margin:0;
+    top:0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    height: 100%;
+}
+
+.show{
+    background-color:#17181B;
+    border-radius: var(--main-border-radius);
+}
+
+.icon{
+    margin-top:4vw;
+    margin-bottom: 3vw;
+    font-size: 1.8vw;
+    padding: 1.2vw;
+    background-color: #27292E;
+    border-radius: var(--main-border-radius);
+}
+
+.icon-last{
+    margin-top:1.5vw;
+    margin-bottom: 3vw;
+    font-size: 1.8vw;
+    padding: 1.2vw;
+    background-color: #27292E;
+    border-radius: var(--main-border-radius); 
+}
+
+.title-last{
+    margin-top:.5vw;
+    font-size: 1.5vw;
+    color:white;
+    font-weight:500;
+    width: 100%;
+    margin-left:.5vw;
+}
+
+.small-title-last{
+    margin-top:2.3vw;
+    font-size: .8vw;
+    color:#D1D1D6;
+    font-weight:400;
+    margin-left:.5vw;
+    width: 100%;
+}
+
+
+.title{
+    font-size: 1.2vw;
+    color:white;
+    font-weight:500;
+}
+
+.content{
+    color:#D1D1D6;
+    text-align:center;
+    font-size:.73vw;
+    font-weight:400;
+    margin-top: 1.2vw;
+    width:90%;
+}
+
+.content-last{
+    color:#D1D1D6;
+    text-align:center;
+    font-size:.73vw;
+    font-weight:400;
+    margin-top: 0;
+    margin-bottom: 2.5vw;
+    width:90%;
+}
+
+
+.inner-container{
+    width: 80%;
+    align-self: center;
+    justify-self: center;
+    padding:0 2vw 0 2vw;
+}
+
+.center{
+    justify-content: center;
+    align-content: center;
+}
+
+.button{
+    border-radius: 5px;
+    background-color:#475CF6;
+    font-weight:500;
+    border:none;
+    width:85%;
+    height:2.5vw;
+    color:white;
+    font-size:1.1vw;
+    margin-top: 3vw;
+    margin-bottom: 5vw;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+    transition:all 1s;
+}
+
+.button:hover{
+    border-radius: 2px;
+    transition:all 1s;
+    background-color: #4257ed;
+}

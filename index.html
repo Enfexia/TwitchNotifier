@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch Notifier</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-4-grid@3.4.0/css/grid.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://rawcdn.githack.com/tmijs/cdn/e59ebeab0b5eb22e7bff9e053d8dbad58e7d030f/latest/tmi.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61820447-16"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-61820447-16');
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row center" style="height: 100%;">
+            <div class="col-lg-6 col-12 center"style="height: fit-content;display:flex;justify-content:center;">
+                <div class="inner-container show" id="inner-container" style="display: none;">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row center">
+                                <p class="icon" id="icon"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row center">
+                                <span class="title" id="title"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row center">
+                                <span class="content" id="content"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row center">
+                                <button class="button" id="button"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inner-container show" id="inner-container-last" style="display: none;">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="row center">
+                                <p class="icon-last" id="icon-last"></p>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="row center">
+                                <span class="small-title-last" id="small-title-last">Welcome</span>
+                                <span class="title-last" id="title-last"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="row center">
+                                <span class="content-last" id="content-last">You are now getting the chat messages as a notification!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
